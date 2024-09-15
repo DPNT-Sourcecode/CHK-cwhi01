@@ -71,10 +71,21 @@ runner = QueueBasedImplementationRunnerBuilder()\
     .create()
 print("Runner created")
 
+config = Utils.get_runner_config()
+print("Config details:")
+for attr in dir(config):
+    if not attr.startswith("__"):
+        try:
+            print(f"  {attr}: {getattr(config, attr)}")
+        except:
+            print(f"  {attr}: Unable to read")
 print("Starting ChallengeSession")
-ChallengeSession\
-    .for_runner(runner)\
-    .with_config(Utils.get_config())\
-    .with_action_provider(lambda: get_user_input(sys.argv[1:]))\
-    .start()
-print("ChallengeSession completed")
+try:
+    ChallengeSession\
+        .for_runner(runner)\
+        .with_config(Utils.get_config())\
+        .with_action_provider(lambda: get_user_input(sys.argv[1:]))\
+        .start()
+except Exception as e:
+    print(f"Error starting ChallengeSession: {e}")
+print("ChallengeSession completed or errored")
