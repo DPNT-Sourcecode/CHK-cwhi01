@@ -1,6 +1,4 @@
 import sys
-print("Script started")
-
 from tdl.queue.queue_based_implementation_runner import QueueBasedImplementationRunnerBuilder
 from tdl.runner.challenge_session import ChallengeSession
 from solutions.SUM import sum_solution
@@ -13,7 +11,6 @@ from solutions.CHL import checklite_solution
 from runner.utils import Utils
 from runner.user_input_action import get_user_input
 
-print("Imports completed")
 
 """
   ~~~~~~~~~~ Running the system: ~~~~~~~~~~~~~
@@ -58,7 +55,6 @@ print("Imports completed")
  
 """
 
-print("Creating runner")
 runner = QueueBasedImplementationRunnerBuilder()\
     .set_config(Utils.get_runner_config())\
     .with_solution_for('sum', sum_solution.compute)\
@@ -69,12 +65,9 @@ runner = QueueBasedImplementationRunnerBuilder()\
     .with_solution_for('checkout', checkout_solution.checkout)\
     .with_solution_for('checklite', checklite_solution.checklite)\
     .create()
-print("Runner created")
 
-print("Starting ChallengeSession")
 ChallengeSession\
     .for_runner(runner)\
     .with_config(Utils.get_config())\
     .with_action_provider(lambda: get_user_input(sys.argv[1:]))\
     .start()
-print("ChallengeSession completed")
