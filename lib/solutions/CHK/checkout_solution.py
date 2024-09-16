@@ -1,19 +1,31 @@
-from typing import Dict, Tuple, Optional
+from typing import Dict, Tuple, Optional, List
+
+PRICES: Dict[str, int] = {
+    'A': 50,
+    'B': 30,
+    'C': 20,
+    'D': 15,
+    'E': 40
+}
+
+OFFERS: Dict[str, int] = {
+    'A': [(5,200), (3, 130)],
+    'B': [(2, 45)]
+}
+
+DEALS: Dict[str, int] = {
+    'A': 50,
+    'B': 30,
+    'C': 20,
+    'D': 15,
+    'E': 40
+}
 
 # noinspection PyUnusedLocal
 # skus = unicode string
 def checkout(skus: str) -> int:
 
-    # first value in the value tuple is price of the item, second is the special offer if there is one (qty and the offer price)
-    # sku -> (price, special_offer)
-    # special offer is a tuple (qty, special_price) or None
-    # Note: can be further refactored with the use of nested dicts for better readability
-    price_table: Dict[str, Tuple[int, Optional[Tuple[int, int]]]] = {
-        'A': (50, (3, 130)),
-        'B': (30, (2, 45)),
-        'C': (20, None),
-        'D': (15, None)
-    }
+
 
     # function to calculate the cost of a given item and quantity 
     def calculate_item_cost(sku: str, qty: int) -> Optional[int]:
@@ -57,4 +69,5 @@ def checkout(skus: str) -> int:
 
 
     
+
 
