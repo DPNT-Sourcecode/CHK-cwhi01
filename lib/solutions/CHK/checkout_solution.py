@@ -60,7 +60,9 @@ def checkout(skus: str) -> int:
     # applies any special deals buy x get y free
     # not a pure function (i.e. modifies the original input - since variables passed by reference)
     def apply_deals(item_counts: Dict[str, int]) -> Dict[str, int]:
+
         for deal_item, (buy_qty, free_item, free_qty) in DEALS.items():
+            
             if deal_item in item_counts and free_item in item_counts:
                 num_deals = item_counts[deal_item] // buy_qty
 
@@ -92,4 +94,5 @@ def checkout(skus: str) -> int:
 
 
     
+
 
