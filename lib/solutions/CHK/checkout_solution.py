@@ -70,16 +70,12 @@ def checkout(skus: str) -> int:
                     num_deals = total_qty // min_size
                     remaining = total_qty % min_size
 
-                    item_counts[free_item] = (num)
-
-
-
-
-                num_deals = item_counts[deal_item] // buy_qty
-
-                if num_deals > 0:
-                    total_free = num_deals * free_qty
-                    item_counts[free_item] = max(0, item_counts.get(free_item, 0)-total_free)
+                    item_counts[free_item] = (num_deals * buy_qty) + remaining
+                else:
+                    if free_item in item_counts:
+                        num_deals = item_counts[deal_item] // buy_qty
+                        total_free = num_deals * free_qty
+                        item_counts[free_item] = max(0, item_counts.get(free_item, 0)-total_free)
         
         return item_counts
     
@@ -105,6 +101,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
