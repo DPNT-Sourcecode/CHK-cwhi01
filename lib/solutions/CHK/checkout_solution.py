@@ -17,9 +17,19 @@ def checkout(skus: str) -> int:
         if sku not in price_table:
             return None
         
-        item_price = price_table[sku]
+        item_price = price_table[sku][0]
+        special_offer = price_table[sku][1]
+
+        if special_offer:
+            offer_qty = special_offer[0]
+            offer_price = special_offer[1]
+            pass
+        else:
+            return qty * item_price
+
 
     
+
 
 
 
