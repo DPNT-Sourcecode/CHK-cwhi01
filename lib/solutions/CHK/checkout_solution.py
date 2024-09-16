@@ -35,6 +35,9 @@ def checkout(skus: str) -> int:
     # count the items 
     item_counts: Dict[str, int] = {}
 
+    if not isinstance(skus, str):
+        return -1
+
     for sku in skus:
         item_counts[sku] = item_counts(sku, 0) + 1
     
