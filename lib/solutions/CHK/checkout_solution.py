@@ -62,8 +62,19 @@ def checkout(skus: str) -> int:
     def apply_deals(item_counts: Dict[str, int]) -> Dict[str, int]:
 
         for deal_item, (buy_qty, free_item, free_qty) in DEALS.items():
-            
-            if deal_item in item_counts and free_item in item_counts:
+
+            if deal_item in item_counts:
+                if deal_item == free_item:
+                    total_qty = item_counts[free_item]
+                    min_size = buy_qty + free_qty
+                    num_deals = total_qty // min_size
+                    remaining = total_qty % min_size
+
+                    item_counts[free_item] = (num)
+
+
+
+
                 num_deals = item_counts[deal_item] // buy_qty
 
                 if num_deals > 0:
@@ -94,5 +105,6 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
