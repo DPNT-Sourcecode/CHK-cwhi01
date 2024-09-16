@@ -6,7 +6,8 @@ PRICES: Dict[str, int] = {
     'B': 30,
     'C': 20,
     'D': 15,
-    'E': 40
+    'E': 40,
+    'F': 10
 }
 
 OFFERS: Dict[str, List[Tuple[int, int]]] = {
@@ -15,7 +16,8 @@ OFFERS: Dict[str, List[Tuple[int, int]]] = {
 }
 
 DEALS: Dict[str, Tuple[int, str, int]] = {
-    'E': (2, 'B', 1)
+    'E': (2, 'B', 1),
+    'F': (2, 'F', 1)
 }
 
 # noinspection PyUnusedLocal
@@ -90,11 +92,4 @@ def checkout(skus: str) -> int:
 
 
     
-
-
-
-
-
-
-
 
