@@ -1,5 +1,6 @@
 from typing import Dict, Tuple, Optional, List
 
+# these consts below can be placed inside the function as well (or inside a class if need be in the OOP scenario)
 PRICES: Dict[str, int] = {
     'A': 50,
     'B': 30,
@@ -64,7 +65,17 @@ def checkout(skus: str) -> int:
                     item_counts[free_item] = max(0, item_counts.get(free_item, 0)-total_free)
         
         return item_counts
-        
+    
+    # fist do the counting and place in dict
+    item_counts = count_items(skus)
+
+    if item_counts is None:
+        return -1
+    
+    # applhy any special deals 
+    item_counts = apply_deals(item_counts)
+
+    # calculate the final total cost 
 
     
     total = 0
@@ -75,6 +86,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
