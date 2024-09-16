@@ -43,7 +43,11 @@ def checkout(skus: str) -> int:
         total = 0
 
         if offers:
-            pass
+            best_offers = offers[:].sort(reverse=True)
+            for offer_qty, offer_price in best_offers:
+                num_offers = remaining // offer_qty
+                total += num_offers * offer_price
+                remaining %= offer_qty
 
         total += remaining * item_price
         return total
@@ -51,14 +55,6 @@ def checkout(skus: str) -> int:
 
     
     total = 0
-
-    # calculate the total cost 
-    for sku, qty in item_counts.items():
-        item_cost = calculate_item_cost(sku, qty)
-        if item_cost is None:
-            return -1
-        total += item_cost
-    
     return total
 
     
@@ -66,5 +62,6 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
