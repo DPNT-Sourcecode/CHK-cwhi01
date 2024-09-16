@@ -2,13 +2,24 @@
 
 # noinspection PyUnusedLocal
 # skus = unicode string
-def checkout(skus):
+def checkout(skus: str) -> int:
     # first value in the value tuple is price of the item, second is the special offer if there is one (qty and the offer price)
+    # sku -> (price, special_offer)
+    # special offer is a tuple (qty, special_price) or None
     price_table = {
         'A': (50, (3, 130)),
         'B': (30, (2, 45)),
         'C': (20, None),
         'D': (15, None)
     }
+
+    def calculate_item_cost(sku, qty):
+        if sku not in price_table:
+            return None
+        
+        item_price = price_table[sku]
+
+    
+
 
 
