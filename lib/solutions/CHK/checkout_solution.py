@@ -39,7 +39,7 @@ def checkout(skus: str) -> int:
         return -1
 
     for sku in skus:
-        item_counts[sku] = item_counts(sku, 0) + 1
+        item_counts[sku] = item_counts.get(sku, 0) + 1
     
     total = 0
 
@@ -57,6 +57,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
