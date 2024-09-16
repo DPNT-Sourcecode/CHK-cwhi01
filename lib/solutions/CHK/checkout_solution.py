@@ -51,6 +51,8 @@ def checkout(skus: str) -> int:
 
         total += remaining * item_price
         return total
+    
+    def apply_deals(item_counts: Dict[str, int]) -> Dict[str, int]:
         
 
     
@@ -62,6 +64,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
