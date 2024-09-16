@@ -35,13 +35,26 @@ def checkout(skus: str) -> int:
     # count the items 
     item_counts: Dict[str, int] = {}
 
-        for sku in skus:
+    for sku in skus:
+        item_counts[sku] = item_counts(sku, 0) + 1
+    
+    total = 0
+
+    # calculate the total cost 
+    for sku, qty in item_counts.items():
+        item_cost = calculate_item_cost(sku, qty)
+        if item_cost is None:
+            return -1
+        total += item_cost
+    
+    return total
 
     
 
 
 
     
+
 
 
 
