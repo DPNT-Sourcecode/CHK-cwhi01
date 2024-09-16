@@ -37,18 +37,13 @@ def checkout(skus: str) -> int:
 
     # function to calculate the cost of a given item and quantity 
     def calculate_item_cost(sku: str, qty: int) -> Optional[int]:
-        if sku not in price_table:
-            return None
-        
-        item_price = price_table[sku][0]
-        special_offer = price_table[sku][1]
+        item_price = PRICES[sku]
+        offers = OFFERS.get[sku]
+        remaining = qty
+        total = 0
 
-        if special_offer:
-            offer_qty = special_offer[0]
-            offer_price = special_offer[1]
-            count = qty // offer_qty
-            remaining = qty % offer_qty
-            return (count * offer_price) + (remaining * item_price)
+        if offers:
+            pass
         else:
             return qty * item_price
         
@@ -70,7 +65,4 @@ def checkout(skus: str) -> int:
 
 
     
-
-
-
 
