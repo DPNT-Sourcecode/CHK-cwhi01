@@ -4,7 +4,6 @@ def test_checkout():
     assert checkout("") == 0
     assert checkout("A") == 50
     assert checkout(76) == -1
-    assert checkout("ATYEBC") == -1
     assert checkout("£$AC@") == -1
     assert checkout("AB") == 80
     assert checkout("BBBB") == 90    
@@ -24,5 +23,19 @@ def test_checkout():
     assert checkout("KK") == 150
 
     assert checkout("NNNNM") == 175
+
+    assert checkout("PPPPP") == 200
+
+    assert checkout("RRRQ") == 180
+    assert checkout("RRRRRRQQQ") == 330
+
+    assert checkout("UUUU") == 120
+
+    assert checkout("VVVV") == 180
+
+    assert checkout("STXYZ") == 98
+
+
+
 
 
