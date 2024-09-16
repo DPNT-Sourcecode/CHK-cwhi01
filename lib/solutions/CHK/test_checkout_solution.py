@@ -18,3 +18,11 @@ def test_checkout():
     assert checkout("FFFF") == 30
     assert checkout("FFFFFEE") == 120
 
+    assert checkout("HHHHH") == 45
+    assert checkout("HHHHHHHHHHH") == 90
+
+    assert checkout("KK") == 150
+
+    assert checkout("NNNNM") == 175
+
+
