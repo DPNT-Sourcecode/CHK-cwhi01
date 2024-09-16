@@ -44,8 +44,9 @@ def checkout(skus: str) -> int:
 
         if offers:
             pass
-        else:
-            return qty * item_price
+
+        total += remaining * item_price
+        return total
         
 
     
@@ -65,4 +66,5 @@ def checkout(skus: str) -> int:
 
 
     
+
 
