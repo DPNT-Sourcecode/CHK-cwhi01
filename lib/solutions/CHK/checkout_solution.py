@@ -24,6 +24,7 @@ def checkout(skus: str) -> int:
     if not isinstance(skus, str):
         return -1
 
+    # function to count the item quantities 
     def count_items(skus: str) -> Optional[Dict[str, int]]:
         item_counts: Dict[str, int] = {}
 
@@ -31,6 +32,8 @@ def checkout(skus: str) -> int:
             if sku not in PRICES:
                 return None
             item_counts[sku] = item_counts.get(sku, 0) + 1
+        
+        return item_counts
 
     # function to calculate the cost of a given item and quantity 
     def calculate_item_cost(sku: str, qty: int) -> Optional[int]:
@@ -67,6 +70,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
