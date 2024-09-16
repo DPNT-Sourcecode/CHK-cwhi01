@@ -40,12 +40,13 @@ def checkout(skus: str) -> int:
     # apply the best offer also
     def calculate_item_cost(sku: str, qty: int) -> Optional[int]:
         item_price = PRICES[sku]
-        offers = OFFERS.get[sku]
+        offers = OFFERS.get(sku)
         remaining = qty
         total = 0
 
         if offers:
-            best_offers = offers[:].sort(reverse=True)
+            best_offers = offers[:]
+            best_offers.sort(reverse=True)
             for offer_qty, offer_price in best_offers:
                 num_offers = remaining // offer_qty
                 total += num_offers * offer_price
@@ -89,6 +90,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
