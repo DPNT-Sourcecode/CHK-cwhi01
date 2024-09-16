@@ -31,27 +31,22 @@ PRICES: Dict[str, int] = {
     'Z': 50
 }
 
-| H    | 10    | 5H for 45, 10H for 80  |
-| K    | 80    | 2K for 150             |
-
-| N    | 40    | 3N get one M free      |
-
-| P    | 50    | 5P for 200             |
-| Q    | 30    | 3Q for 80              |
-| R    | 50    | 3R get one Q free      |
-
-| U    | 40    | 3U get one U free      |
-| V    | 50    | 2V for 90, 3V for 130  |
-
-
 OFFERS: Dict[str, List[Tuple[int, int]]] = {
-    'A': [(5,200), (3, 130)],
-    'B': [(2, 45)]
+    'A': [(5, 200), (3, 130)],
+    'B': [(2, 45)],
+    'H': [(5, 45), (10, 80)],
+    'K': [(2, 150)],
+    'P': [(5, 200)],
+    'Q': [(3, 80)],
+    'V': [(2, 90),(3, 130)]
 }
 
 DEALS: Dict[str, Tuple[int, str, int]] = {
     'E': (2, 'B', 1),
-    'F': (2, 'F', 1)
+    'F': (2, 'F', 1),
+    'N': (3, 'M', 1),
+    'R': (3, 'Q', 1),
+    'U': (3, 'U', 1)
 }
 
 # noinspection PyUnusedLocal
@@ -135,8 +130,4 @@ def checkout(skus: str) -> int:
 
 
     
-
-
-
-
 
