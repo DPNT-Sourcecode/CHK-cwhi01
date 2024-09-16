@@ -16,6 +16,7 @@ def test_checkout():
     assert checkout("FF") == 20
     assert checkout("FFF") == 20
     assert checkout("FFFF") == 30
-    assert checkout("FFFFFEE") == 90
+    assert checkout("FFFFFEE") == 120
+
 
 
