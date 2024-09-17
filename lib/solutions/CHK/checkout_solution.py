@@ -111,7 +111,9 @@ def checkout(skus: str) -> int:
         
         return adjusted_counts
     
-
+    # function to calculate the total group discounts 
+    # a slightly inefficient algorithm (nested loops etc. - more than ideal time complexity), but extendable data structure for groups used  
+    # more groups and conditions could be added 
     def calculate_group_discounts(adjusted_counts: Dict[str, int]) -> Dict[str, int]:
 
         total_discount = 0
@@ -153,16 +155,18 @@ def checkout(skus: str) -> int:
     # calculate the final total cost 
     subtotal = sum(calculate_item_cost(item, qty) for item, qty in adjusted_counts.items())
 
-# calculate total discounts for groups 
+    # calculate total discounts for groups and calculate the final price
     total_group_discounts = calculate_group_discounts(adjusted_counts)
+    final_price = subtotal - total_group_discounts
     
-    return total
-
-    
-
-
+    return final_price
 
     
+
+
+
+    
+
 
 
 
