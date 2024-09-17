@@ -127,6 +127,11 @@ def checkout(skus: str) -> int:
             num_groups = len(item_prices) // size
             normal_price = sum(item_prices)
 
+            discount = num_groups * group_price
+            remaining_items_start = num_groups * size
+            remaining_price = sum(item_prices[remaining_items_start:])
+            subtotal = discount + remaining_price
+
 
 
 
@@ -159,6 +164,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
