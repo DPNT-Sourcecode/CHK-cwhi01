@@ -24,7 +24,7 @@ def test_checkout():
     assert checkout("HHHHH") == 45
     assert checkout("HHHHHHHHHHH") == 90
 
-    assert checkout("KK") == 150
+    assert checkout("KK") == 120
 
     assert checkout("NNNNM") == 160
 
@@ -43,7 +43,8 @@ def test_checkout():
     assert checkout("STZZ") == 65
 
     assert checkout("STXAAA") == 175
-    assert checkout("STXYZAAAEEB") == 285
+    assert checkout("STXYZAAAEEB") == 292
+
 
 
 
