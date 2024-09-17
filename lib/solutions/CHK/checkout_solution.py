@@ -126,8 +126,13 @@ def checkout(skus: str) -> int:
             
             item_prices.sort()
 
+            while len(item_prices) >= count:
+                for i in range(count):
 
-    
+        
+        return adjusted_counts
+
+
     # fist do the counting and place in dict
     item_counts = count_items(skus)
 
@@ -153,6 +158,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
