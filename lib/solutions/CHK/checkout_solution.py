@@ -131,9 +131,9 @@ def checkout(skus: str) -> int:
                     price = item_prices.pop()
 
                     for item in group_items:
-                        if item in adjusted_counts and PRICES[item]==price:
-                            
-
+                        if item in adjusted_counts and PRICES[item] == price:
+                            adjusted_counts[item] -= 1
+                            break
         
         return adjusted_counts
 
@@ -163,11 +163,4 @@ def checkout(skus: str) -> int:
 
 
     
-
-
-
-
-
-
-
 
