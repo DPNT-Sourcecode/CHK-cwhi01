@@ -111,14 +111,19 @@ def checkout(skus: str) -> int:
         
         return item_counts
     
+    def apply_group_discount(item_counts: Dict[str, int]) -> Dict[str, int]:
+        pass
+    
     # fist do the counting and place in dict
     item_counts = count_items(skus)
 
     if item_counts is None:
         return -1
     
+    adjusted_counts = item_counts.copy()
+
     # applhy any special deals 
-    item_counts = apply_deals(item_counts)
+    adjusted_counts = apply_deals(adjusted_counts)
 
     # calculate the final total cost 
     total = 0
@@ -133,5 +138,6 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
