@@ -1,7 +1,7 @@
 from .checkout_solution import checkout
 
 def test_checkout():
-    
+
     assert checkout(76) == -1
     assert checkout("£$AC@") == -1
 
@@ -37,7 +37,15 @@ def test_checkout():
 
     assert checkout("VVVV") == 180
 
-    assert checkout("STXYZ") == 200
+    assert checkout("STX") == 45
+    assert checkout("XYZ") == 45
+    assert checkout("STXYZS") == 90
+    assert checkout("STZZ") == 65
+
+    assert checkout("STXAAA") == 175
+    assert checkout("STXYZAAAEEB") == 255
+
+
 
 
 
