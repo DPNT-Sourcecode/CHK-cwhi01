@@ -111,13 +111,12 @@ def checkout(skus: str) -> int:
         
         return adjusted_counts
     
-    # applies any group discounts that may be present 
-    # not a pure function (i.e. modifies the original input - since variables passed by reference)
-    def apply_group_discounts(adjusted_counts: Dict[str, int]) -> Dict[str, int]:
+
+    def calculate_group_discounts(adjusted_counts: Dict[str, int]) -> Dict[str, int]:
+
+        total_discount = 0
         
-        # slightly inefficient algorithm due to nested loops
-        # but good in terms of extendability of the group discount options 
-        for group_items, count, group_price in GROUP_DISCOUNTS:
+        for group_items, size, group_price in GROUP_DISCOUNTS:
             item_prices = []
 
             for item in group_items:
@@ -125,6 +124,9 @@ def checkout(skus: str) -> int:
                     item_prices.extend([PRICES[item]] * adjusted_counts[item])
             
             item_prices.sort(reverse=True)
+
+            groups = len(item_prices) // size
+
 
         
         return adjusted_counts
@@ -155,5 +157,6 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
