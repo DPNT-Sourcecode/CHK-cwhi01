@@ -111,8 +111,12 @@ def checkout(skus: str) -> int:
         
         return item_counts
     
-    def apply_group_discount(item_counts: Dict[str, int]) -> Dict[str, int]:
-        pass
+    # applies any group discounts that may be present 
+    # not a pure function (i.e. modifies the original input - since variables passed by reference)
+    def apply_group_discounts(item_counts: Dict[str, int]) -> Dict[str, int]:
+        
+        for group_items, count, group_price in GROUP_DISCOUNTS:
+            item_prices = []
     
     # fist do the counting and place in dict
     item_counts = count_items(skus)
@@ -122,13 +126,14 @@ def checkout(skus: str) -> int:
     
     adjusted_counts = item_counts.copy()
 
-    # applhy any special deals 
+    # adjust by applying any special deals and discounts etc.
     adjusted_counts = apply_deals(adjusted_counts)
+    adjusted_counts = apply_group_discounts(adjusted_counts)
 
     # calculate the final total cost 
     total = 0
     
-    for item, qty in item_counts.items():
+    for item, qty in adjusted_counts.items():
         total += calculate_item_cost(item, qty)
     
     return total
@@ -138,6 +143,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
