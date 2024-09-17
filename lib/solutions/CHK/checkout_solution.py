@@ -124,10 +124,15 @@ def checkout(skus: str) -> int:
                 if item in adjusted_counts:
                     item_prices.extend([PRICES[item]] * adjusted_counts[item])
             
-            item_prices.sort()
+            item_prices.sort(reverse=True)
 
             while len(item_prices) >= count:
                 for i in range(count):
+                    price = item_prices.pop()
+
+                    for item in group_items:
+                        if item in adjusted_counts and PRICES[item]==price:
+                            
 
         
         return adjusted_counts
@@ -158,6 +163,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
