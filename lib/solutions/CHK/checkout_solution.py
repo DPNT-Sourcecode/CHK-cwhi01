@@ -130,13 +130,13 @@ def checkout(skus: str) -> int:
             discount = num_groups * group_price
             remaining_items_start = num_groups * size
             remaining_price = sum(item_prices[remaining_items_start:])
-            subtotal = discount + remaining_price
+            subtotal_discount = discount + remaining_price
 
+            group_discount = normal_price - subtotal_discount
 
-
-
-        
-        return adjusted_counts
+            total_discount += group_discount
+    
+        return total_discount
 
 
     # fist do the counting and place in dict
@@ -149,13 +149,12 @@ def checkout(skus: str) -> int:
 
     # adjust by applying any special deals and discounts etc.
     adjusted_counts = apply_deals(adjusted_counts)
-    adjusted_counts = apply_group_discounts(adjusted_counts)
 
     # calculate the final total cost 
-    total = 0
-    
-    for item, qty in adjusted_counts.items():
-        total += calculate_item_cost(item, qty)
+    subtotal = sum(calculate_item_cost(item, qty) for item, qty in adjusted_counts.items())
+
+# calculate total discounts for groups 
+    total_group_discounts = calculate_group_discounts(adjusted_counts)
     
     return total
 
@@ -164,6 +163,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
