@@ -161,8 +161,24 @@ def checkout(skus: str) -> int:
     return final_price
 
     
+# a few improvements could be made to this solution: 
+# - not the most consistent solution, since I should have chosen one of the methods:
+#   a) either calculate the raw total and then just subtract discounts
+#   b) or modify the dict in place (or a copy of a dict) and then calculate the total
+#  instead, I have kind of used a hybrid approach, which is not consistent. But I will submit it as it is due to time constraints
+#  one of the functions applies deals, another calculates the discount to be subtracted
 
+# testing can be more thorough
+# currently I am just testing the results of the whole function
+# but it would be more difficult to debug it if something is wrong in the individual functions
+# maybe separating the individual discount functions and placing them outside of the checkout function (as if they are all just part of a class) would be more beneficial for debugging purposes
+
+# some inefficiencies in algorithms that could potentially be improved
+# overall, I have prioritised extendability over time complexity/efficiency or memory complexity
+# i believe this solution is quite extendable and readable (i.e. it is easy to extend in the future)
+# but if speed/efficiency is more important, this could be modified (maybe use of different data structure for more efficient data manipulation)
 
 
     
+
 
