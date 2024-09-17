@@ -124,8 +124,10 @@ def checkout(skus: str) -> int:
                     item_prices.extend([PRICES[item]] * adjusted_counts[item])
             
             item_prices.sort(reverse=True)
+            num_groups = len(item_prices) // size
+            normal_price = sum(item_prices)
 
-            groups = len(item_prices) // size
+
 
 
         
@@ -157,6 +159,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
