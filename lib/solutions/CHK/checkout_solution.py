@@ -1,4 +1,4 @@
-from typing import Dict, Tuple, Optional, List
+from typing import Dict, Tuple, Optional, List, Set
 
 # these consts below can be placed inside the function as well (or inside a class if need be in the OOP scenario)
 
@@ -48,6 +48,9 @@ DEALS: Dict[str, Tuple[int, str, int]] = {
     'R': (3, 'Q', 1),
     'U': (3, 'U', 1)
 }
+
+# for better extendability in the future 
+GROUP_DISCOUNTS: List[Tuple[Set[str], int, int]] = [({'S', 'T', 'X', 'Y', 'Z'}, 3, 45)]
 
 # noinspection PyUnusedLocal
 # skus = unicode string
@@ -130,4 +133,5 @@ def checkout(skus: str) -> int:
 
 
     
+
 
