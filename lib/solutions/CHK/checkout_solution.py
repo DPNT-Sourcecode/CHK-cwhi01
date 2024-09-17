@@ -166,10 +166,3 @@ def checkout(skus: str) -> int:
 
     
 
-
-
-
-
-
-
-

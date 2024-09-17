@@ -48,5 +48,3 @@ def test_checkout():
 
 
 
-
-
