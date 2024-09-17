@@ -1,7 +1,6 @@
 from typing import Dict, Tuple, Optional, List, Set
 
-# these consts below can be placed inside the function as well (or inside a class if need be in the OOP scenario)
-
+# these constants below can be placed inside the function as well (or inside a class if need be in the OOP scenario)
 PRICES: Dict[str, int] = {
     'A': 50,
     'B': 30,
@@ -166,6 +165,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 

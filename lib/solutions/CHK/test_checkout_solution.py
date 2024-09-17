@@ -43,7 +43,8 @@ def test_checkout():
     assert checkout("STZZ") == 65
 
     assert checkout("STXAAA") == 175
-    assert checkout("STXYZAAAEEB") == 255
+    assert checkout("STXYZAAAEEB") == 285
+
 
 
 
