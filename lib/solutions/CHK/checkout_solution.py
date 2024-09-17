@@ -91,32 +91,38 @@ def checkout(skus: str) -> int:
     
     # applies any special deals buy x get y free
     # not a pure function (i.e. modifies the original input - since variables passed by reference)
-    def apply_deals(item_counts: Dict[str, int]) -> Dict[str, int]:
+    def apply_deals(adjusted_counts: Dict[str, int]) -> Dict[str, int]:
 
         for deal_item, (buy_qty, free_item, free_qty) in DEALS.items():
 
-            if deal_item in item_counts:
+            if deal_item in adjusted_counts:
                 if deal_item == free_item:
-                    total_qty = item_counts[free_item]
+                    total_qty = adjusted_counts[free_item]
                     min_size = buy_qty + free_qty
                     num_deals = total_qty // min_size
                     remaining = total_qty % min_size
 
-                    item_counts[free_item] = (num_deals * buy_qty) + remaining
+                    adjusted_counts[free_item] = (num_deals * buy_qty) + remaining
                 else:
-                    if free_item in item_counts:
-                        num_deals = item_counts[deal_item] // buy_qty
+                    if free_item in adjusted_counts:
+                        num_deals = adjusted_counts[deal_item] // buy_qty
                         total_free = num_deals * free_qty
-                        item_counts[free_item] = max(0, item_counts.get(free_item, 0)-total_free)
+                        adjusted_counts[free_item] = max(0, adjusted_counts.get(free_item, 0)-total_free)
         
-        return item_counts
+        return adjusted_counts
     
     # applies any group discounts that may be present 
     # not a pure function (i.e. modifies the original input - since variables passed by reference)
-    def apply_group_discounts(item_counts: Dict[str, int]) -> Dict[str, int]:
+    def apply_group_discounts(adjusted_counts: Dict[str, int]) -> Dict[str, int]:
         
         for group_items, count, group_price in GROUP_DISCOUNTS:
             item_prices = []
+
+            for item in group_items:
+                if item in adjusted_counts:
+                    item_prices.extend([PRICES[item]] * adjusted_counts[item])
+            
+            item_prices.sort()
     
     # fist do the counting and place in dict
     item_counts = count_items(skus)
@@ -143,6 +149,7 @@ def checkout(skus: str) -> int:
 
 
     
+
 
 
 
